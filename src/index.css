@@ -1,11 +1,32 @@
 @import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
 
 @theme {
-  --color-accent: #2563eb;
-  --color-accent-light: #3b82f6;
-  --color-marked: #dcfce7;
-  --color-marked-border: #22c55e;
-  --color-bingo: #fbbf24;
+  /* Cyberpunk Deep Purple Palette */
+  --color-void: #0a0612;
+  --color-abyss: #12081f;
+  --color-deep: #1a0a2e;
+  --color-purple-dark: #2d1b4e;
+  --color-purple-mid: #4a2c7a;
+  --color-purple-bright: #7c3aed;
+  --color-purple-neon: #a855f7;
+  --color-purple-glow: #c084fc;
+  
+  /* Accent colors */
+  --color-cyan-neon: #22d3ee;
+  --color-magenta-neon: #f0abfc;
+  --color-hot-pink: #ec4899;
+  
+  /* Functional colors */
+  --color-accent: #7c3aed;
+  --color-accent-light: #a855f7;
+  --color-marked: #3b1d5e;
+  --color-marked-border: #a855f7;
+  --color-bingo: #22d3ee;
+  
+  /* Fonts */
+  --font-display: 'Orbitron', monospace;
+  --font-body: 'Rajdhani', sans-serif;
 }
 
 html,
@@ -16,6 +37,102 @@ body,
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--font-body);
   -webkit-tap-highlight-color: transparent;
+  background: var(--color-void);
+}
+
+/* Neon glow utilities */
+.neon-text {
+  text-shadow: 
+    0 0 5px var(--color-purple-neon),
+    0 0 10px var(--color-purple-neon),
+    0 0 20px var(--color-purple-neon),
+    0 0 40px var(--color-purple-bright);
+}
+
+.neon-text-cyan {
+  text-shadow: 
+    0 0 5px var(--color-cyan-neon),
+    0 0 10px var(--color-cyan-neon),
+    0 0 20px var(--color-cyan-neon),
+    0 0 40px var(--color-cyan-neon);
+}
+
+.neon-box {
+  box-shadow: 
+    0 0 5px var(--color-purple-neon),
+    0 0 10px var(--color-purple-neon),
+    inset 0 0 5px rgba(168, 85, 247, 0.3);
+}
+
+.neon-box-cyan {
+  box-shadow: 
+    0 0 5px var(--color-cyan-neon),
+    0 0 10px var(--color-cyan-neon),
+    0 0 20px var(--color-cyan-neon),
+    inset 0 0 10px rgba(34, 211, 238, 0.2);
+}
+
+/* Animated gradient background */
+.cyber-bg {
+  background: 
+    radial-gradient(ellipse at 20% 20%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(34, 211, 238, 0.05) 0%, transparent 70%),
+    linear-gradient(180deg, var(--color-void) 0%, var(--color-abyss) 50%, var(--color-deep) 100%);
+}
+
+/* Grid line overlay */
+.cyber-grid {
+  background-image: 
+    linear-gradient(rgba(124, 58, 237, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 58, 237, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Scan line effect */
+.scanlines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.1) 2px,
+    rgba(0, 0, 0, 0.1) 4px
+  );
+  pointer-events: none;
+}
+
+/* Glitch animation */
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+@keyframes pulse-neon {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.8; }
+  94% { opacity: 1; }
+  96% { opacity: 0.9; }
+  97% { opacity: 1; }
+}
+
+.animate-flicker {
+  animation: flicker 3s infinite;
+}
+
+.animate-pulse-neon {
+  animation: pulse-neon 2s ease-in-out infinite;
 }
