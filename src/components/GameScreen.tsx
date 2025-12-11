@@ -17,28 +17,40 @@ export function GameScreen({
   onReset,
 }: GameScreenProps) {
   return (
-    <div className="flex flex-col min-h-full bg-gray-50">
+    <div className="relative flex flex-col min-h-full cyber-bg cyber-grid overflow-hidden">
+      {/* Decorative corner elements */}
+      <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-purple-neon/30 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-16 h-16 border-r-2 border-t-2 border-purple-neon/30 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-16 h-16 border-l-2 border-b-2 border-purple-neon/30 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-purple-neon/30 pointer-events-none" />
+      
       {/* Header */}
-      <header className="flex items-center justify-between p-3 bg-white border-b border-gray-200">
+      <header className="relative flex items-center justify-between p-3 bg-abyss/90 backdrop-blur-sm border-b border-purple-mid">
         <button
           onClick={onReset}
-          className="text-gray-500 text-sm px-3 py-1.5 rounded active:bg-gray-100"
+          className="font-display text-purple-glow/70 text-sm px-3 py-1.5 rounded border border-purple-mid
+            hover:border-purple-neon hover:text-purple-glow transition-all duration-200
+            active:bg-purple-dark/50"
         >
-          ← Back
+          ← ABORT
         </button>
-        <h1 className="font-bold text-gray-900">Soc Ops</h1>
-        <div className="w-16"></div>
+        <h1 className="font-display font-bold text-purple-glow tracking-wider neon-text animate-pulse-neon">
+          SOC OPS
+        </h1>
+        <div className="w-20"></div>
       </header>
 
       {/* Instructions */}
-      <p className="text-center text-gray-500 text-sm py-2 px-4">
-        Tap a square when you find someone who matches it.
+      <p className="text-center text-purple-glow/60 text-sm py-2 px-4 font-body tracking-wide">
+        Tap to confirm target acquisition
       </p>
 
       {/* Bingo indicator */}
       {hasBingo && (
-        <div className="bg-amber-100 text-amber-800 text-center py-2 font-semibold text-sm">
-          🎉 BINGO! You got a line!
+        <div className="relative bg-gradient-to-r from-cyan-neon/20 via-cyan-neon/30 to-cyan-neon/20 
+          text-cyan-neon text-center py-3 font-display font-bold tracking-widest uppercase
+          border-y border-cyan-neon/50 neon-box-cyan animate-pulse-neon">
+          ⚡ BINGO ACHIEVED ⚡
         </div>
       )}
 
@@ -49,6 +61,16 @@ export function GameScreen({
           winningSquareIds={winningSquareIds}
           onSquareClick={onSquareClick}
         />
+      </div>
+      
+      {/* Bottom status bar */}
+      <div className="bg-abyss/80 border-t border-purple-mid px-4 py-2 flex justify-between items-center">
+        <span className="font-display text-xs text-purple-mid tracking-wider">
+          STATUS: {hasBingo ? 'MISSION COMPLETE' : 'IN PROGRESS'}
+        </span>
+        <span className="font-display text-xs text-purple-mid tracking-wider">
+          {board.filter(s => s.isMarked).length}/25 MARKED
+        </span>
       </div>
     </div>
   );
