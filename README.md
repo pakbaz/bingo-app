@@ -4,7 +4,9 @@
 
 ### Break the ice, make connections, have fun!
 
-**Social Bingo for in-person mixers, team events, and conferences**
+**Social Bingo for workplace events, team building, and conferences**
+
+*Now featuring a cyberpunk aesthetic and hilarious workplace prompts!*
 
 [![Live Demo](https://img.shields.io/badge/🎮_Live_Demo-Play_Now-blue?style=for-the-badge)](https://pakbaz.github.io/bingo-app/)
 [![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)](LICENSE)
@@ -30,21 +32,21 @@
 
 - 🎲 **Randomized boards** - Every game is unique
 - 📱 **Mobile-first design** - Perfect for on-the-go networking
-- 🎨 **Clean, modern UI** - Built with React 19 and Tailwind CSS v4
+- 🎨 **Cyberpunk aesthetic** - Sleek neon design with glowing effects and retro-futuristic vibe
 - 🏆 **Instant win detection** - Celebrates your achievement
 - 🔄 **Quick reset** - Start a new game in seconds
 - 🌐 **No installation required** - Just open and play
-- 🎯 **25 diverse prompts** - Find people who bike to work, speak multiple languages, have pets, and more!
+- 🎯 **25+ workplace prompts** - From coffee addictions to meeting mishaps, discover your coworkers' quirks!
 
 ## 📸 Screenshots
 
 <div align="center">
 
 ### Start Screen
-<img src="https://github.com/user-attachments/assets/69b66b62-2a04-469c-9f49-22b83bcdd949" alt="Start Screen" width="600"/>
+<img src="https://github.com/user-attachments/assets/ac131daa-fcc3-4f12-a2c8-87779fd58318" alt="Start Screen - Cyberpunk Edition" width="600"/>
 
 ### Game Board
-<img src="https://github.com/user-attachments/assets/5dbd03b0-41bf-4e26-97f7-161e2149755f" alt="Game Board" width="600"/>
+<img src="https://github.com/user-attachments/assets/7e8c225a-fa97-45a4-9cab-adc47ddaa729" alt="Game Board with Workplace Prompts" width="600"/>
 
 </div>
 
